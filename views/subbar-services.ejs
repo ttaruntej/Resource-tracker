@@ -1,4 +1,4 @@
-
+<div class="sub">
 
   <nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
     <a style="font-weight: lighter" class="navbar-brand" href="#"></a>
@@ -12,9 +12,9 @@
         <ul class="navbar-nav mr-auto">
           <li style="padding-left: 5%"><a class="navbar-brand" href="/services">All</a></li>
   
-          <li class="reqqq nav-item element " style="  width: 260px; padding-left: 5%">
+          <li style=" width: 280px; " class="reqqq nav-item element " style="  width: 260px; padding-left: 5%">
             <div class="selectWrapper">
-            <select style="width: 200px;" name="servicesrequirementfilter" class="form-control " id="servicesrequirementfilter">
+            <select  name="servicesrequirementfilter" class="form-control selectBox" id="servicesrequirementfilter">
               <option value="" disabled selected>Select Services</option>
               <option value="Financial Services">Financial Services</option>
               <option value="Food Services">Food Services</option>
@@ -29,14 +29,14 @@
             </select>
           </div>
           </li>
-          <li style="padding-left: 5%; width:280px">
+          <li style="padding-left: 5%; width:280px;">
             <div class="selectWrapper">
-            <select width: 200px; class="form-control " onchange="print_city('cityName', this.selectedIndex);" id="servicesstatefilter" name="servicesstatefilter"
-              class="form-control" ></select></div>
+            <select width: 200px;  onchange="print_city('cityName', this.selectedIndex);" id="servicesstatefilter" name="servicesstatefilter"
+              class="form-control selectBox" ></select></div>
           </li>
-          <li style="padding-left: 5%">
+          <li style="padding-left: 5%; width:280px;">
             <div class="selectWrapper">
-            <select class="form-control " id="cityName" class="form-control" name="servicescityfilter"></select></div>
+            <select class="form-control selectBox" id="cityName"name="servicescityfilter"></select></div>
             <script language="javascript">
               print_state("servicesstatefilter");
             </script>
@@ -56,4 +56,4 @@
   <br />
   <br />
   <br />
-
+</div>
