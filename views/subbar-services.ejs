@@ -1,56 +1,59 @@
 
 
-<nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
-  <a style="font-weight: lighter" class="navbar-brand" href="#">Filters</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentt"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a style="font-weight: lighter" class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentt"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContentt">
+      <form action="/filterpost-services" method="post">
+        <ul class="navbar-nav mr-auto">
+          <li style="padding-left: 5%"><a class="navbar-brand" href="/services">All</a></li>
+  
+          <li class="reqqq nav-item element " style="  width: 260px; padding-left: 5%">
+            <div class="selectWrapper">
+            <select style="width: 200px;" name="servicesrequirementfilter" class="form-control " id="servicesrequirementfilter">
+              <option value="" disabled selected>Select Services</option>
+              <option value="Financial Services">Financial Services</option>
+              <option value="Food Services">Food Services</option>
+              <option value="Ambulance Services">Ambulance Services</option>
+              <option value="Beds with Oxygen">Beds with Oxygen</option>
+              <option value="Beds without Oxygen">Beds without Oxygen</option>
+              <option value="Plasma">Plasma</option>
+              <option value="Medicine Type">Medicine Type</option>
+              <option value="Oxygen Supply">Oxygen Supply</option>
+              <option value="Vaccination">Vaccination</option>
+              <option value="Otherss">Others</option>
+            </select>
+          </div>
+          </li>
+          <li style="padding-left: 5%; width:280px">
+            <div class="selectWrapper">
+            <select width: 200px; class="form-control " onchange="print_city('cityName', this.selectedIndex);" id="servicesstatefilter" name="servicesstatefilter"
+              class="form-control" ></select></div>
+          </li>
+          <li style="padding-left: 5%">
+            <div class="selectWrapper">
+            <select class="form-control " id="cityName" class="form-control" name="servicescityfilter"></select></div>
+            <script language="javascript">
+              print_state("servicesstatefilter");
+            </script>
+          </li>
+          <li style="padding-left: 5%"> <button type="submit" style="background-color: #006b96" class="btn btn-primary"
+              name="postbutton">
+              Apply Filter
+            </button></li>
+  
+  
+          </li>
+  
+        </ul>
+      </form>
+    </div>
+  </nav>
+  <br />
+  <br />
+  <br />
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContentt">
-    <form action="/filterpost-services" method="post">
-      <ul class="navbar-nav mr-auto">
-        <li style="padding-left: 5%"><a class="navbar-brand" href="/services">All</a></li>
-
-        <li class="nav-item element" style="padding-left: 5%">
-
-          <select name="servicesrequirementfilter" class="form-control" id="servicesrequirementfilter">
-            <option value="" disabled selected>Select Services</option>
-            <option value="Financial Services">Financial Services</option>
-            <option value="Food Services">Food Services</option>
-            <option value="Ambulance Services">Ambulance Services</option>
-            <option value="Beds with Oxygen">Beds with Oxygen</option>
-            <option value="Beds without Oxygen">Beds without Oxygen</option>
-            <option value="Plasma">Plasma</option>
-            <option value="Medicine Type">Medicine Type</option>
-            <option value="Oxygen Supply">Oxygen Supply</option>
-            <option value="Vaccination">Vaccination</option>
-            <option value="Otherss">Others</option>
-          </select>
-        </li>
-        <li style="padding-left: 5%">
-
-          <select onchange="print_city('cityName', this.selectedIndex);" id="servicesstatefilter" name="servicesstatefilter"
-            class="form-control" ></select>
-        </li>
-        <li style="padding-left: 5%">
-          <select id="cityName" class="form-control" name="servicescityfilter"></select>
-          <script language="javascript">
-            print_state("servicesstatefilter");
-          </script>
-        </li>
-        <li style="padding-left: 5%"> <button type="submit" style="background-color: #006b96" class="btn btn-primary"
-            name="postbutton">
-            Apply Filter
-          </button></li>
-
-
-        </li>
-
-      </ul>
-    </form>
-  </div>
-</nav>
-<br />
-<br />
-<br />

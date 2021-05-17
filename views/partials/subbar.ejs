@@ -1,50 +1,63 @@
-<nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
-  <a style="font-weight: lighter" class="navbar-brand" href="#">Filters</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentt"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="sub">
+  <nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a style="font-weight: lighter" class="navbar-brand" href="#"></a>
+    <button style="margin-bottom: 10px;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentt"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse " id="navbarSupportedContentt">
+      <form action="/filterposts" method="post">
+        <ul class="navbar-nav mr-auto">
+          <li style="padding-left: 5%"><a class="navbar-brand" href="/">All</a></li>
+  
+          <li style=" width: 280px; " class=" reqqq nav-item element " style="padding-left: 5%">
+            <div class="selectWrapper">
+              <select  name="requirementfilter" class="selectBox form-control " id="requirementfilter">
+                <option value="" disabled selected>Select Requirement</option>
+                <option value="Beds without oxygen">Beds without oxygen</option>
+                <option value="Beds with oxygen">Beds with oxygen</option>
+                <option value="Medicine Type">Medicine Type</option>
+                <option value="Oxygen Concentrator">Oxygen Concentrator</option>
+                <option value="Plasma">Plasma</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            
+          </li>
+          <li  style="padding-left: 5% ;  width: 280px;">
+            <div class="selectWrapper">
+            <select  class=" form-control selectBox" onchange="print_city('cityName', this.selectedIndex);" id="statefilter" name="statefilter"
+              class="form-control" ></select>
+              </div>
+          </li>
+          <li style="width: 280px;padding-left: 5%">
+            <div class="selectWrapper">
+            <select id="cityName" class="form-control selectBox" name="cityfilter"></select>
+          </div>
+            <script language="javascript">
+              print_state("statefilter");
+            </script>
+          </li>
+          <li class="filbtn" style="padding-left: 5%"> <button type="submit" style="background-color: #006b96" class="btn btn-primary"
+              name="postbutton">
+              Apply Filter
+            </button></li>
+  
+  
+          </li>
+  
+        </ul>
+      </form>
+    </div>
+  </nav>
+  
+  
+  
+  <br />
+  <br />
+  <br />
+</div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContentt">
-    <form action="/filterposts" method="post">
-      <ul class="navbar-nav mr-auto">
-        <li style="padding-left: 5%"><a class="navbar-brand" href="/">All</a></li>
-
-        <li class="nav-item element" style="padding-left: 5%">
-
-          <select name="requirementfilter" class="form-control" id="requirementfilter">
-            <option value="" disabled selected>Select Requirement</option>
-            <option value="Beds without oxygen">Beds without oxygen</option>
-            <option value="Beds with oxygen">Beds with oxygen</option>
-            <option value="Medicine Type">Medicine Type</option>
-            <option value="Oxygen Concentrator">Oxygen Concentrator</option>
-            <option value="Plasma">Plasma</option>
-            <option value="Other">Other</option>
-          </select>
-        </li>
-        <li style="padding-left: 5%">
-
-          <select onchange="print_city('cityName', this.selectedIndex);" id="statefilter" name="statefilter"
-            class="form-control" ></select>
-        </li>
-        <li style="padding-left: 5%">
-          <select id="cityName" class="form-control" name="cityfilter"></select>
-          <script language="javascript">
-            print_state("statefilter");
-          </script>
-        </li>
-        <li style="padding-left: 5%"> <button type="submit" style="background-color: #006b96" class="btn btn-primary"
-            name="postbutton">
-            Apply Filter
-          </button></li>
-
-
-        </li>
-
-      </ul>
-    </form>
-  </div>
-</nav>
-<br />
-<br />
-<br />
+  
+  
