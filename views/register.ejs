@@ -124,9 +124,13 @@ function closeNav() {
                 <a href="/auth/google"  class="btn google-btn social-btn" style="margin-left: 100px;" role="button" type="button"><span><i class="fab fa-google"></i> Sign up with Google</span> </a>
             </div>
             <p style="text-align:center"> OR  </p>
+            <input name="firstName" type="text" id="inputName" class="form-control" placeholder="First Name" required="" autofocus="">
+            <input name="lastName" type="text" id="inputLastName" class="form-control" placeholder="Last Name" required="" autofocus="">
+           
             <input name="username" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-            <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-            
+            <input name="password" type="password" id="password" class="form-control" placeholder="Password" required="" onkeyup='check();'>
+            <input type="password" name="confirm_password" class="form-control"  placeholder="Confirm Password"  id="confirm_password" required=""  onkeyup='check();' /> 
+            <span id='message'></span>
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign Up</button>
             
             
@@ -134,7 +138,18 @@ function closeNav() {
             
             </form>          
     </div>
-    
-    
+    <script>
+      var check = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Not matching';
+  }
+}
+    </script>
+
 </body>
 </html>

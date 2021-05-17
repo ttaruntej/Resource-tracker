@@ -42,6 +42,8 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   googleId: String,
+  firstname:String,
+  lastName:String
  
 });
 
@@ -80,8 +82,10 @@ passport.use(
 );
 
 app.post("/register", function (req, res) {
+  
   User.register(
-    { username: req.body.username },
+    { username: req.body.username,firstName:req.body.firstName,
+      lastName:req.body.lastName },
     req.body.password,
     function (err, user) {
       if (err) {
