@@ -87,7 +87,7 @@
   font-size: 25px;
   color: #fff;
   display: block;
-  transition: 0.3s;
+  transition: 0s;
 }
 
 .sidenav a:hover {
@@ -104,38 +104,67 @@
 .navbar-brand{
   display: none;
 }
-@media (max-width:600px) {
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .scroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .sub{
+    display: none;
+  }
+  .realnav{
+    display: none;
+  }
+  .sidenav{
+    display: table-row;
+  }
+  .login{
+    
+    margin-left: 280px;
+  }
   .jumbotron{
     width: 90%;
   }
-  
-  .navbar-brand{
-    display: table-row;
-  }
-  
-}
-@media (min-width:600px) {
-  .jumbotron{
-    width: 70%;
-  }
-  .login{
-    margin-left: 580px;
-  }
-  .navbar-brand{
-    display: table-row;
-  }
-  
-}
+ 
 
-@media (min-width:1210px) {
-  .jumbotron{
-    width: 50%;
+}
+@media only screen and (min-width: 768px) {
+  /*for desktop*/
+  .scroll{
+    display: none;
   }
-  .login{
-    margin-left: 1340px;
+  .scrollmenu{
+    display: none;
   }
-  .navbar-brand{
+  .sidenav{
+    display: none;
+  }
+  .bluenav{
+    display:none;
+  }
+  .realnav{
     display: table-row;
   }
-  
+  .reqqq{
+    margin-left: 220px; 
+   }
+   .selectWrapper{
+    border-radius:36px;
+    display:inline-block;
+    overflow:hidden;
+    background:#cccccc;
+    border:1px solid #cccccc;
+    align-items: center;
+  }
+  .selectBox{
+    width:230px;
+    height:40px;
+    border:0px;
+    outline:none;
+    padding-left: 30px;
+    
+  }
 }

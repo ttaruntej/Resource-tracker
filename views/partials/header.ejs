@@ -38,7 +38,7 @@
     
     <a style="font-size: 20px;" href="feed">Help Now</a>
     <a style="font-size: 20px;" href="services">Services</a>
-    <a style="font-size: 20px;" href="#">Location</a>
+
     <div class="nav-item dropdown">
       <a style="font-size: 20px;" style="color: #fff;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Write your Post
@@ -51,10 +51,10 @@
     <a href="logout" style=" margin-left: 130px; margin-top: 180%; font-size: 15px;">Log Out</a>
   </div>
   
-  <div style=" width: 100%; background-color: #006b96;">
-    <span style="color: #fff; margin-left: 20px; font-size:30px;cursor:pointer" onclick="openNav()"> > </span>
-    <a style=" color: #fff; font-size: 17px;" href="login" class="login">Login</a> &nbsp  &nbsp
-    <a style="color: #fff; font-size: 20px; font-size: 17px;" href="register">Sign Up</a>
+  <div style="padding-top: 20px; padding-bottom: 0px; width: 100%; background-color: #006b96;" class="bluenav">
+    <span class="nav-tabs"  style="color: #fff;  margin-left: 20px; font-size:20px;cursor:pointer" onclick="openNav()"> Menu </span>
+    <a style=" color: #fff; font-size: 17px;" href="login" class="login">Login   &nbsp; |</a>  
+    <a style="color: #fff; font-size: 20px; font-size: 17px;" href="register">&nbsp;Sign Up</a>
   </div>
   
   
@@ -67,6 +67,40 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
- 
+
+
+<nav class="navbar navbar-expand-lg navbar-light py-3 " style="background-color: #006b96;">
+  <a class="navbar-brand" href="#">
+    <img style="z-index: 10;" src="views/images/logo-ring.png" width="30" height="30" alt="">
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a style="margin-left: 70px; color: #fff;" class="nav-link" href="feed">Help Now <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a style="color: #fff;" class="nav-link" href="services">Services</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a style="color: #fff;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Write Your Post
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="post">For Help</a>
+          <a class="dropdown-item" href="post-services">For Services</a>
+          
+        </div>
+      </li>
+      <li class="nav-item">
+        <a style=" margin-left: 900px; color: #fff;" class="nav-link login" href="login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a style="color: #fff;" class="nav-link signup" href="register">Sign Up</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 </body>
 
