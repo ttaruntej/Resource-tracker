@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/css/services.css">
+<%- include("partials/header") %>
+    <div class="top">
+      <div class="register">
+        <div class="heads">
+        <h2 style= "color: #fff;"}>Post Something</h2>
+      </div>
+        <form id="register" action="/post-services" method="post">
+          <label>Type : </label><br>
+          <select class="drop" name="type">
+            <option value="Individual">Individual</option>
+            <option value="NGO">NGO</option>
+            <option value="Company">Company</option>
+          </select>
+          <br><br>
+          <label>Name : </label>
+          <br>
+          <input type="text" name="pname" id="name" placeholder="Enter You Name">
+          <br><br>
+          <label>Service Type : </label>
+          <br>
+          <select class="type" name="help">
+            <option value="Financial Services">Financial Services</option>
+            <option value="Food Services">Food Services</option>
+            <option value="Ambulance Services">Ambulance Services</option>
+            <option value="Beds with Oxygen">Beds with Oxygen</option>
+            <option value="Beds without Oxygen">Beds without Oxygen</option>
+            <option value="Plasma">Plasma</option>
+            <option value="Medicine Type">Medicine Type</option>
+            <option value="Oxygen Supply">Oxygen Supply</option>
+            <option value="Vaccination">Vaccination</option>
+            <option value="Otherss">Others</option>
+          </select>
+          <br>
+          <br>
+          <label> Service Details : </label>
+          <textarea class="area" name="detail" rows="6" cols="36">
+          </textarea>
+          <br><br>
+          <label> State : </label>
+          <br>
+          <select onchange="print_city('cityName', this.selectedIndex);" id="state" name ="state" class="form-control" required></select>
+          <br><br>
+          <label> City : </label>
+          <br>
+          <select id ="cityName" class="form-control" required name="city"></select>
+          <script language="javascript">print_state("state");</script>
+                    <br><br>
+          <label> Contact Details : </label>
+          <br>
+          <input type="text" name="phone" id="name" placeholder="Enter Your Phone Number">
+          <br><br>
+          <div class="submitb">
+          <input type="submit" name="submit" id="submit" value="Submit">
+        </div>
+        </form>
+
+      </div>
+
+    </div>
+    <%- include("partials/footer") %>

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+.nav-link{
+    font-family: 'Lato', serif; 
+    
+    font-size:17px;
+    margin-right: 10px;  
+}
+.main{
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
+}
+
+.firstItem{
+    margin-left: 80px;
+}
+.heading{
+    font-family: 'Lato', serif;
+    margin-bottom: 30px;
+   
+}
+.navbar-default {
+    font-size: 1.5em;
+    font-weight: 400;
+    
+    padding: 10px;
+    border: 0px;
+    border-radius: 0px;
+  }
+  html, body {
+    font-family: 'Lato', serif;  
+  }
+  p{
+    font-family: 'Lato', serif; 
+    
+  }
+  h2{
+    font-family: 'Lato', serif; 
+    font-weight: lighter;
+  }
+  label {
+    float: left
+}
+.jumbotron{
+    margin: auto;
+    width: 40%
+}
+
+.para{
+  
+  background-color: aqua;
+  width: fit-content;
+  margin-left: 200px;
+}
+.col-4{
+  margin-top: 8px;
+}
+.info{
+  text-align: right;
+  
+}
+.firs{
+  text-align: left;
+  width: max-content;
+}
+
+.invi{
+  display: none;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #006b96;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.navbar-brand{
+  display: none;
+}
+@media (max-width:600px) {
+  .jumbotron{
+    width: 90%;
+  }
+  
+  .navbar-brand{
+    display: table-row;
+  }
+  
+}
+@media (min-width:600px) {
+  .jumbotron{
+    width: 70%;
+  }
+  .login{
+    margin-left: 580px;
+  }
+  .navbar-brand{
+    display: table-row;
+  }
+  
+}
+
+@media (min-width:1210px) {
+  .jumbotron{
+    width: 50%;
+  }
+  .login{
+    margin-left: 1340px;
+  }
+  .navbar-brand{
+    display: table-row;
+  }
+  
+}
