@@ -112,6 +112,10 @@
     overflow-y: hidden;
     white-space: nowrap;
   }
+  
+ .services-sub{
+   display:none;
+ }
   .sub{
     display: none;
   }
@@ -136,6 +140,7 @@
   .scroll{
     display: none;
   }
+ 
   .scrollmenu{
     display: none;
   }
