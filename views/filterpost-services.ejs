@@ -45,7 +45,7 @@
             </p>
           </div>
           <br>
-   <%} else if( post.help===servicesrequirementsearch && post.state=== servicesstatesearch){ console.log(servicesrequirementsearch+" "+servicesstatesearch+" "+servicescitysearch);%>
+   <%} else if( post.help===servicesrequirementsearch && post.state=== servicesstatesearch && !servicescitysearch){ console.log(servicesrequirementsearch+" "+servicesstatesearch+" "+servicescitysearch);%>
     <div style="padding: 2%" class="jumbotron">
         <div class="row">
           <div class="col-8">
@@ -88,6 +88,49 @@
         </p>
       </div>
       <br>
+      <%} else if( post.city===servicescitysearch && post.state=== servicesstatesearch && !servicesrequirementsearch){ console.log(servicesrequirementsearch+" "+servicesstatesearch+" "+servicescitysearch);%>
+      <div style="padding: 2%" class="jumbotron">
+          <div class="row">
+            <div class="col-8">
+              <h2
+                style="font-size: 35px; display: table-cell; vertical-align: middle"
+                class="display-4"
+              >
+                <%=post.pname%>
+              </h2>
+            </div>
+            <div class="col-4" >
+              <p style="display: table-cell"><%=post.city%> , <%=post.state%></p>
+            </div>
+          </div>
+          <hr />
+          <p style="font-weight: bold" class="firs">
+            Type of Organization : <%=post.type%>  |  Service Offered : <%=post.help%>
+          </p>
+          <div class="row">
+            <div style="padding-left: 15px; padding-right: 15px; padding-top: 10px;">
+              
+              <%=post.detail%> <br><br>
+              Contact : <%=post.phone%>
+            </div>
+           
+          </div>
+          
+        
+        
+          <br><br>
+          
+        
+          <p>
+            <a href="tel:<%=post.phone%>"> Call </a>/
+            <a
+              target="_blank"
+              href="https://api.whatsapp.com/send?phone=+91<%=post.phone%>"
+              >Whatsapp</a
+            >
+          </p>
+        </div>
+        <br>
       <%} else if(post.help===servicesrequirementsearch && !servicesstatesearch){console.log(servicesrequirementsearch);%>
         <div style="padding: 2%" class="jumbotron">
             <div class="row">
