@@ -58,7 +58,7 @@
 
 #logreg-forms .facebook-btn{  background-color:#3C589C; }
 
-#logreg-forms .google-btn{ background-color: #DF4B3B; }
+#logreg-forms .google-btn{ background-color: #DF4B3B;  }
 
 #logreg-forms .form-reset, #logreg-forms .form-signup{ display: none; }
 
@@ -82,6 +82,7 @@
         width:200px;
         margin:0 auto;
         margin-bottom: 10px;
+        margin-left: -60px;
     }
     #logreg-forms  .social-btn{
         font-size: 1.3rem;
@@ -93,8 +94,10 @@
     }
     #logreg-forms .social-btn:nth-child(1){
         margin-bottom: 5px;
+        
     }
     #logreg-forms .social-btn span{
+        
         display: none;
     }
     #logreg-forms  .facebook-btn:after{
@@ -102,7 +105,10 @@
     }
   
     #logreg-forms  .google-btn:after{
-        content:'Google+';
+        content:'Google';
+       
+       
+        
     }
     
 }
