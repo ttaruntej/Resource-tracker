@@ -147,14 +147,6 @@ app.get(
 
 
 
-app.get("/post", function (req, res) {
-  if (req.isAuthenticated()) {
-    res.render("post");
-  } else {
-    res.redirect("/login");
-  }
-});
-
 
 
 
@@ -190,21 +182,10 @@ const posthelpSchema = {
 
 const PostHelp = mongoose.model("PostHelp", posthelpSchema);
 
-app.get("/", function (req, res) {
-  PostHelp.find({}, function (err, foundPosthelp) {
-    res.render("feed", {
-      posthelps: foundPosthelp
-    });
-  });
-});
 
-app.get("/feed", function (req, res) {
-  PostHelp.find({}, function (err, foundPosthelp) {
-    res.render("feed", {
-      posthelps: foundPosthelp
-    });
-  });
-});
+
+
+
 
 app.post("/post", bodyParser.urlencoded({ extended: false }), [
 
@@ -237,7 +218,7 @@ app.post("/post", bodyParser.urlencoded({ extended: false }), [
 
   posthelp.save(function (err) {
     if (!err) {
-      res.redirect("feed");
+      res.redirect("feedlogout");
     }
   });
   }
@@ -246,19 +227,7 @@ app.post("/post", bodyParser.urlencoded({ extended: false }), [
 
 
 
-app.get("/filterposts", function (req, res) {
-  PostHelp.find({ "name": { $ne: null } }, function (err, foundPosthelp) {
-    if (err) {
-      console.log(err);
-    } else {
-      if (foundPosthelp) {
-        res.render("filterposts", { posthelps: foundPosthelp, citysearch: cityname, statesearch: statename, requirementsearch: requirementname });
 
-      }
-    }
-
-  });
-});
 
 
 app.get("/login", function (req, res) {
@@ -316,16 +285,7 @@ const postServiceSchema = {
 
 const PostSer = mongoose.model("PostSer", postServiceSchema);
 
-app.get("/services", function (req, res) {
-  PostSer.find({}, function (err, foundPostser) {
-    res.render("services", {
-      postsers: foundPostser
-    });
-  });
-});
-app.get("/post-services", function (req, res) {
-  res.render("post-services");
-});
+
 
 app.get("/otherss", function (req, res) {
   PostSer.find({}, function (err, foundPostser) {
@@ -397,4 +357,118 @@ app.get("/filterpost-services", function (req, res) {
     });
   });
 });
+app.get("/filterposts", function (req, res) {
+  if (req.isAuthenticated()) {
+  PostHelp.find({ "name": { $ne: null } }, function (err, foundPosthelp) {
+    if (err) {
+      console.log(err);
+    } else {
+      if (foundPosthelp) {
+        res.render("filterpostslogout", { posthelps: foundPosthelp, citysearch: cityname, statesearch: statename, requirementsearch: requirementname });
 
+      }
+    }
+
+  });}
+  else{
+    PostHelp.find({ "name": { $ne: null } }, function (err, foundPosthelp) {
+      if (err) {
+        console.log(err);
+      } else {
+        if (foundPosthelp) {
+          res.render("filterposts", { posthelps: foundPosthelp, citysearch: cityname, statesearch: statename, requirementsearch: requirementname });
+  
+        }
+      }
+  
+    });
+  }
+});
+
+app.get("/filterpostslogout", function(req,res){
+  PostHelp.find({ "name": { $ne: null } }, function (err, foundPosthelp) {
+    if (err) {
+      console.log(err);
+    } else {
+      if (foundPosthelp) {
+        res.render("filterpostslogout", { posthelps: foundPosthelp, citysearch: cityname, statesearch: statename, requirementsearch: requirementname });
+
+      }
+    }
+
+  });
+})
+
+app.get("/feed", function (req, res) {
+  if (req.isAuthenticated()) {
+    PostHelp.find({}, function (err, foundPosthelp) {
+    res.render("feedlogout", {
+      posthelps: foundPosthelp
+    });
+  });} else{
+  PostHelp.find({}, function (err, foundPosthelp) {
+    res.render("feed", {
+      posthelps: foundPosthelp
+    });
+  });}
+});
+app.get("/feedlogout", function (req, res) {
+  if (req.isAuthenticated()) {
+    PostHelp.find({}, function (err, foundPosthelp) {
+      res.render("feed", {
+        posthelps: foundPosthelp
+      });
+    });
+  } else {
+    res.redirect("/feed");
+  }
+});
+app.get("/feedlogout", function (req, res) {
+  PostHelp.find({}, function (err, foundPosthelp) {
+    res.render("feedlogout", {
+      posthelps: foundPosthelp
+    });
+  });
+});
+
+app.get("/post-services", function (req, res) {
+  if (req.isAuthenticated()) {
+    res.render("post-services");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+app.get("/post", function (req, res) {
+  if (req.isAuthenticated()) {
+    res.render("post");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+app.get("/services", function (req, res) {
+  if (req.isAuthenticated()) {
+    PostSer.find({}, function (err, foundPostser) {
+    res.render("services", {
+      postsers: foundPostser
+    });
+  } );}else {
+    res.redirect("/login");
+  }
+});
+
+
+app.get("/", function (req, res) {
+  if (req.isAuthenticated()) {
+    PostHelp.find({}, function (err, foundPosthelp) {
+    res.render("feedlogout", {
+      posthelps: foundPosthelp
+    });
+  });} else{
+  PostHelp.find({}, function (err, foundPosthelp) {
+    res.render("feed", {
+      posthelps: foundPosthelp
+    });
+  });}
+});
