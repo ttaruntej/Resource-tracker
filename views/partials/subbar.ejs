@@ -1,61 +1,70 @@
-<div class="sub">
-  <nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
-    <a style="font-weight: lighter" class="navbar-brand" href="#"></a>
-    <button style="margin-bottom: 10px;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentt"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse " id="navbarSupportedContentt">
-      <form action="/filterposts" method="post">
-        <ul class="navbar-nav mr-auto">
-          <li style="padding-left: 5%"><a class="navbar-brand" href="/">All</a></li>
-  
-          <li style=" width: 258px; " class=" reqqq nav-item element " style="  width: 260px; padding-left: 5%">
-            <div class="selectWrapper">
-              <select  name="requirementfilter" class="selectBox form-control " id="requirementfilter">
-                <option value="" disabled selected>Select Requirement</option>
-                <option value="Beds without oxygen">Beds without oxygen</option>
-                <option value="Beds with oxygen">Beds with oxygen</option>
-                <option value="Medicine Type">Medicine Type</option>
-                <option value="Oxygen Concentrator">Oxygen Concentrator</option>
-                <option value="Plasma">Plasma</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
+<div class="sub" style="width:100vw">
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">All posts</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">  <form action="/filterposts" method="post">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <div style="display: flex;flex-direction: row;justify-content: space-around;width:90vw;flex-wrap: wrap;">
+            <div>
+              <li class="nav-item">
+                <div class="dropdown selectWrapper">
+                  <select  name="requirementfilter"  class="btn btn-secondary dropdown-toggle"   id="requirementfilter">
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             
-          </li>
-          <li  style="padding-left: 5% ;  width: 280px;">
-            <div class="selectWrapper">
-            <select  class=" form-control selectBox" onchange="print_city('cityName', this.selectedIndex);" id="statefilter" name="statefilter"
-              class="form-control" ></select>
-              </div>
-          </li>
-          <li style="width: 280px;padding-left: 5%">
-            <div class="selectWrapper">
-            <select id="cityName" class="form-control selectBox" name="cityfilter"></select>
-          </div>
-            <script language="javascript">
-              print_state("statefilter");
-            </script>
-          </li>
-          <li class="filbtn" style="padding-left: 5%"> <button type="submit" style="background-color: #006b96" class="btn btn-primary"
+            
+                      <option value="" disabled selected>Select Requirement</option>
+                      <option value="Beds without oxygen">Beds without oxygen</option>
+                      <option value="Beds with oxygen">Beds with oxygen</option>
+                      <option value="Medicine Type">Medicine Type</option>
+                      <option value="Oxygen Concentrator">Oxygen Concentrator</option>
+                      <option value="Plasma">Plasma</option>
+                      <option value="Other">Other</option>
+            
+                  </ul>
+                </select>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item">
+            
+                <div class="selectWrapper">
+                <select   onchange="print_city('cityName', this.selectedIndex);" id="statefilter" name="statefilter"
+                class="btn btn-secondary dropdown-toggle" ></select>
+                  </div>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item">
+                <div class="selectWrapper" >
+                  <select id="cityName"  name="cityfilter" class="btn btn-secondary dropdown-toggle"></select>
+                </div>
+                  <script language="javascript">
+                    print_state("statefilter");
+                  </script>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item">
+              <button type="submit" class="btn btn-outline-success" style="background-color: #006b96;color: white;"
               name="postbutton">
               Apply Filter
-            </button></li>
-  
-  
-          </li>
-  
+                      </button> </li>
+            </div>
+          </div>
         </ul>
-      </form>
+      
+          
+         
+        </form>
+      </div>
     </div>
   </nav>
-  
-  
-  
-  <br />
-  <br />
   <br />
 </div>
 

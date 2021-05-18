@@ -1,122 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<%- include("partials/header") %>
 
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/bootstrap-social.css">
-    <link rel="stylesheet" href="/css/styles.css" />
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/cities.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@800;900&display=swap"
-    rel="stylesheet" />
-  <title>covid</title>
-</head>
-
-<body>
-  <div style="z-index: 2;" id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    
-    <a style="font-size: 20px;" href="feed">Help Now</a>
-    <a style="font-size: 20px;" href="services">Services</a>
-
-    <div class="nav-item dropdown">
-      <a style="font-size: 20px;" style="color: #fff;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Write your Post
-      </a>
-      <div style="width : 20px;  margin-left: 25px;" class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a style="color: black; font-size: 16px;" class="dropdown-item" href="post">For Patients</a>
-        <a style="color: black; font-size: 16px;" class="dropdown-item" href="post-services">For Services</a>
-      </div>
-    </div>
-    <a href="logout" style=" margin-left: 130px; margin-top: 180%; font-size: 15px;">Log Out</a>
-  </div>
-  
-  <div style="padding-top: 20px; padding-bottom: 0px; width: 100%; background-color: #006b96;" class="bluenav">
-    <span class="nav-tabs"  style="color: #fff;  margin-left: 20px; font-size:20px;cursor:pointer" onclick="openNav()"> Menu </span>
-    <a style=" color: #fff; font-size: 17px;" href="login" class="login">Login   &nbsp; |</a>  
-    <a style="color: #fff; font-size: 20px; font-size: 17px;" href="register">&nbsp;Sign Up</a>
-  </div>
-  
-  
-
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-
-
-<nav class="navbar navbar-expand-lg navbar-light py-3 " style="background-color: #006b96;">
-
-  <div class="collapse navbar-collapse" id="navbarNav">
-    
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a style="margin-left: 70px; color: #fff;" class="nav-link" href="feed">Help Now <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a style="color: #fff;" class="nav-link" href="services">Services</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a style="color: #fff;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Write Your Post
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="post">For Help</a>
-          <a class="dropdown-item" href="post-services">For Services</a>
-          
-        </div>
-      </li>
-      <li class="nav-item">
-        <a style=" margin-left: 900px; color: #fff;" class="nav-link login" href="login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a style="color: #fff;" class="nav-link signup" href="register">Sign Up</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<br><br>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/login.css">
-    <title> Registration Form</title>
-</head>
-<body>
     <div id="logreg-forms">
         <form action="/register" method="POST" class="form-signin">
             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Sign Up</h1>
@@ -138,6 +22,7 @@ function closeNav() {
             
             </form>          
     </div>
+
     <script>
       var check = function() {
   if (document.getElementById('password').value ==
@@ -151,5 +36,7 @@ function closeNav() {
 }
     </script>
 
-</body>
-</html>
+
+    
+
+    <%- include("partials/footer") %>

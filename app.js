@@ -10,13 +10,16 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
-
+const validator = require("validator");
+const { check, validationResult } = require("express-validator");
+const { max } = require("lodash");
+const { urlencoded } = require("body-parser");
 const app = express();
 var cityname;
 var statename;
 var requirementname;
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 app.use(
@@ -39,7 +42,9 @@ mongoose.set("useCreateIndex", true);
 
 
 const userSchema = new mongoose.Schema({
-  email: String,
+  email: {
+    type: String,
+  },
   password: String,
   googleId: String,
   firstname:String,
@@ -153,22 +158,22 @@ app.get("/post", function (req, res) {
 
 
 
-app.post("/filterposts",function(req,res) {  
-  
-  global.cityfilter=req.body.cityfilter;
-  global.statefilter=req.body.statefilter;
-  global.requirementfilter=req.body.requirementfilter;
+app.post("/filterposts", function (req, res) {
 
-  requirementname=requirementfilter;
-  cityname=cityfilter;
-  statename=statefilter;
+  global.cityfilter = req.body.cityfilter;
+  global.statefilter = req.body.statefilter;
+  global.requirementfilter = req.body.requirementfilter;
+
+  requirementname = requirementfilter;
+  cityname = cityfilter;
+  statename = statefilter;
   res.redirect("/filterposts");
- 
- 
-  
- });
 
- const posthelpSchema = {
+
+
+});
+
+const posthelpSchema = {
   name: String,
   age: Number,
   city: String,
@@ -179,46 +184,59 @@ app.post("/filterposts",function(req,res) {
   content: String,
   requirement: String,
   result: String,
+  time: Date
 
 };
 
 const PostHelp = mongoose.model("PostHelp", posthelpSchema);
 
-app.get("/",function(req,res){
-  PostHelp.find({}, function(err, foundPosthelp){
-      res.render("feed", {
-        posthelps: foundPosthelp
-        });
+app.get("/", function (req, res) {
+  PostHelp.find({}, function (err, foundPosthelp) {
+    res.render("feed", {
+      posthelps: foundPosthelp
     });
+  });
 });
 
-app.get("/feed",function(req,res){
-  PostHelp.find({}, function(err, foundPosthelp){
-      res.render("feed", {
-        posthelps: foundPosthelp
-        });
+app.get("/feed", function (req, res) {
+  PostHelp.find({}, function (err, foundPosthelp) {
+    res.render("feed", {
+      posthelps: foundPosthelp
     });
+  });
 });
 
-app.post("/post", function (req, res) {  
-     const posthelp= new PostHelp ({
-      name: req.body.name,
-      age: req.body.age,
-      city: req.body.city,
-      state: req.body.state,
-      temperature: req.body.temperature,
-      count: req.body.count,     
-      contact: req.body.contact,
-      content: req.body.content,
-      requirement: req.body.requirement,
-      result: req.body.result
+app.post("/post", bodyParser.urlencoded({ extended: false }), [
 
-    });
-  
-    posthelp.save(function(err){
-      if(!err){
-          res.redirect("feed");
-      }
+  check('name', 'Name must be 3+ characters long').isLength({ min: 3 }).isAlpha(),
+  check('age', 'Invalid age').isNumeric().isLength({ max: 3 }),
+
+], function (req, res) {
+
+  const posterrors = validationResult(req)
+  if (!posterrors.isEmpty()) {
+    const postalert = posterrors.array()
+    res.render('post', { postalert })
+  }
+  const posthelp = new PostHelp({
+    name: req.body.name,
+    age: req.body.age,
+    city: req.body.city,
+    state: req.body.state,
+    temperature: req.body.temperature,
+    count: req.body.count,
+    contact: req.body.contact,
+    content: req.body.content,
+    requirement: req.body.requirement,
+    result: req.body.result,
+    time: new Date()
+  });
+
+
+  posthelp.save(function (err) {
+    if (!err) {
+      res.redirect("feed");
+    }
   });
 
 });
@@ -227,16 +245,16 @@ app.post("/post", function (req, res) {
 
 
 app.get("/filterposts", function (req, res) {
-  PostHelp.find({ "name" : { $ne: null } }, function (err, foundPosthelp) {
+  PostHelp.find({ "name": { $ne: null } }, function (err, foundPosthelp) {
     if (err) {
       console.log(err);
     } else {
       if (foundPosthelp) {
-        res.render("filterposts", { posthelps: foundPosthelp,citysearch:cityname,statesearch:statename,requirementsearch:requirementname });
-        
+        res.render("filterposts", { posthelps: foundPosthelp, citysearch: cityname, statesearch: statename, requirementsearch: requirementname });
+
       }
     }
-    
+
   });
 });
 
@@ -290,51 +308,53 @@ const postServiceSchema = {
   detail: String,
   city: String,
   state: String,
-  phone: Number
+  phone: Number,
+  time: Date
 };
 
 const PostSer = mongoose.model("PostSer", postServiceSchema);
 
-app.get("/services",function(req,res){
-  PostSer.find({}, function(err, foundPostser){
-      res.render("services", {
-        postsers: foundPostser
-        });
+app.get("/services", function (req, res) {
+  PostSer.find({}, function (err, foundPostser) {
+    res.render("services", {
+      postsers: foundPostser
     });
+  });
 });
-app.get("/post-services",function(req,res){
+app.get("/post-services", function (req, res) {
   res.render("post-services");
 });
 
-app.get("/otherss",function(req,res){
-  PostSer.find({}, function(err, foundPostser){
-      res.render("otherss", {
-        postsers: foundPostser
-        });
+app.get("/otherss", function (req, res) {
+  PostSer.find({}, function (err, foundPostser) {
+    res.render("otherss", {
+      postsers: foundPostser
     });
+  });
 });
 
 
 
-app.post("/post-services",function(req,res){
-  const y=req.body.help;
-  const postser = new PostSer ({
-      type: req.body.type,
-      pname: req.body.pname,
-      help: req.body.help,
-      detail: req.body.detail,
-      city: req.body.city,
-      state: req.body.state,
-      phone: req.body.phone,
-    });
+app.post("/post-services", function (req, res) {
+  const y = req.body.help;
+  const postser = new PostSer({
+    type: req.body.type,
+    pname: req.body.pname,
+    help: req.body.help,
+    detail: req.body.detail,
+    city: req.body.city,
+    state: req.body.state,
+    phone: req.body.phone,
+    time: new Date()
+  });
 
-    
 
-    postser.save(function(err){
-        if(!err){
-            res.redirect("services");
-        }
-    });
+
+  postser.save(function (err) {
+    if (!err) {
+      res.redirect("services");
+    }
+  });
 
 });
 
@@ -342,26 +362,26 @@ app.post("/post-services",function(req,res){
 var servicescityname;
 var servicesstatename;
 var servicesrequirementname;
-app.post("/filterpost-services",function(req,res) {  
-  
-  global.servicescityfilter=req.body.servicescityfilter;
-  global.servicesstatefilter=req.body.servicesstatefilter;
-  global.servicesrequirementfilter=req.body.servicesrequirementfilter;
+app.post("/filterpost-services", function (req, res) {
 
-  servicesrequirementname=servicesrequirementfilter;
-  servicescityname=servicescityfilter;
-  servicesstatename=servicesstatefilter;
+  global.servicescityfilter = req.body.servicescityfilter;
+  global.servicesstatefilter = req.body.servicesstatefilter;
+  global.servicesrequirementfilter = req.body.servicesrequirementfilter;
+
+  servicesrequirementname = servicesrequirementfilter;
+  servicescityname = servicescityfilter;
+  servicesstatename = servicesstatefilter;
   res.redirect("/filterpost-services");
- 
- 
-  
- });
 
-app.get("/filterpost-services",function(req,res){
-  PostSer.find({}, function(err, foundPostser){
-      res.render("filterpost-services", {
-        postsers: foundPostser,servicescitysearch:servicescityname,servicesstatesearch:servicesstatename,servicesrequirementsearch:servicesrequirementname
-        });
+
+
+});
+
+app.get("/filterpost-services", function (req, res) {
+  PostSer.find({}, function (err, foundPostser) {
+    res.render("filterpost-services", {
+      postsers: foundPostser, servicescitysearch: servicescityname, servicesstatesearch: servicesstatename, servicesrequirementsearch: servicesrequirementname
     });
+  });
 });
 

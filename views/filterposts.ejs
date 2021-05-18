@@ -79,6 +79,8 @@
           </div>
           <div class="col-4">
             <p>
+              Date: <%=user.time%>
+              <br/>
               Age: <%=user.age%>
                 <br />
                 Temperature: <%=user.temperature%>
@@ -97,11 +99,12 @@
         <p>
           <a href="tel:<%=user.contact%>"> Call </a>/
           <a target="_blank" href="https://api.whatsapp.com/send?phone=+91<%=user.contact%>">Whatsapp</a>
-        </p>
+        </p> Posted On: <small><%=user.time%></small>
+        <br/>
       </div>
       <br>
   
-      else if(user.state=== statesearch && user.city===citysearch && !requirementsearch){%>
+      <%}  else if(user.state=== statesearch && user.city===citysearch && !requirementsearch){%>
         <div style="padding-top: 2%" class="jumbotron">
           <div class="row">
             <div class="col-8">
@@ -147,7 +150,8 @@
           <p>
             <a href="tel:<%=user.contact%>"> Call </a>/
             <a target="_blank" href="https://api.whatsapp.com/send?phone=+91<%=user.contact%>">Whatsapp</a>
-          </p>
+          </p> Posted On: <small><%=user.time%></small>
+          <br/>
         </div>
         <br>
     
@@ -198,10 +202,11 @@
           <p>
             <a href="tel:<%=user.contact%>"> Call </a>/
             <a target="_blank" href="https://api.whatsapp.com/send?phone=+91<%=user.contact%>">Whatsapp</a>
-          </p>
+          </p> Posted On: <small><%=user.time%></small>
+          <br/>
         </div>
         <br>
-        <%} else if(user.state===statesearch && !requirementsearch){%>
+        <%} else if(user.state===statesearch && !requirementsearch && !citysearch){%>
           <div style="padding: 2%" class="jumbotron">
             <div class="row">
               <div class="col-8">
@@ -247,7 +252,8 @@
             <p>
               <a href="tel:<%=user.contact%>"> Call </a>/
               <a target="_blank" href="https://api.whatsapp.com/send?phone=+91<%=user.contact%>">Whatsapp</a>
-            </p>
+            </p> Posted On: <small><%=user.time%></small>
+            <br/>
           </div>
           <br>
       

@@ -1,7 +1,21 @@
 <%- include("partials/header") %>
 
 <div class="main">
-  <h1 class="heading">Post Something</h1>
+  <h1 class="heading">Post to Seek Help</h1>
+
+<% if(typeof postalert != 'undefined'){%>
+  <% postalert.forEach(function(posterror){%>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <%=posterror.msg %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <%})%>
+  <% } %>
+
+
+
 <form action="/post" method="post">
   <div class="form-group">
     <label>Patient Name</label>

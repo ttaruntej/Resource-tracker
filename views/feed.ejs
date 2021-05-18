@@ -18,7 +18,7 @@
           </div>
         </div>
         <hr />
-        <p style="font-weight: bold" class="firs">
+        <p style="font-weight: bold" class="first">
           Requirement : <%=user.requirement%> | Covid Test: <%=user.result%>
         </p>
         <div class="row">
@@ -31,6 +31,7 @@
           </div>
           <div class="col-4">
             <p>
+           
               Age: <%=user.age%>
                 <br />
                 Temperature: <%=user.temperature%>
@@ -50,6 +51,8 @@
           <a href="tel:<%=user.contact%>"> Call </a>/
           <a target="_blank" href="https://api.whatsapp.com/send?phone=+91<%=user.contact%>">Whatsapp</a>
         </p>
+        Posted On: <small><%=user.time%></small>
+        <br/>
       </div>
       <br>
       <% }) %>

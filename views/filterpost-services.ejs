@@ -42,7 +42,8 @@
                 href="https://api.whatsapp.com/send?phone=+91<%=post.phone%>"
                 >Whatsapp</a
               >
-            </p>
+            </p> Posted On: <small><%=post.time%></small>
+            <br/>
           </div>
           <br>
    <%} else if( post.help===servicesrequirementsearch && post.state=== servicesstatesearch && !servicescitysearch){ console.log(servicesrequirementsearch+" "+servicesstatesearch+" "+servicescitysearch);%>
@@ -85,7 +86,8 @@
             href="https://api.whatsapp.com/send?phone=+91<%=post.phone%>"
             >Whatsapp</a
           >
-        </p>
+        </p> Posted On: <small><%=post.time%></small>
+        <br/>
       </div>
       <br>
       <%} else if( post.city===servicescitysearch && post.state=== servicesstatesearch && !servicesrequirementsearch){ console.log(servicesrequirementsearch+" "+servicesstatesearch+" "+servicescitysearch);%>
@@ -128,7 +130,8 @@
               href="https://api.whatsapp.com/send?phone=+91<%=post.phone%>"
               >Whatsapp</a
             >
-          </p>
+          </p> Posted On: <small><%=post.time%></small>
+          <br/>
         </div>
         <br>
       <%} else if(post.help===servicesrequirementsearch && !servicesstatesearch){console.log(servicesrequirementsearch);%>
@@ -171,10 +174,11 @@
                 href="https://api.whatsapp.com/send?phone=+91<%=post.phone%>"
                 >Whatsapp</a
               >
-            </p>
+            </p> Posted On: <small><%=post.time%></small>
+            <br/>
           </div>
           <br>
-        <% }  else if(post.state === servicesstatesearch && !servicesrequirementsearch){console.log(" "+servicesstatesearch+" ");%>
+        <% }  else if(post.state === servicesstatesearch && !servicesrequirementsearch && !servicescitysearch){console.log(" "+servicesstatesearch+" ");%>
             <div style="padding: 2%" class="jumbotron">
                 <div class="row">
                   <div class="col-8">
@@ -214,7 +218,8 @@
                     href="https://api.whatsapp.com/send?phone=+91<%=post.phone%>"
                     >Whatsapp</a
                   >
-                </p>
+                </p> Posted On: <small><%=post.time%></small>
+                <br/>
               </div>
               <br>
               <% }%>

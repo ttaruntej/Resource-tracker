@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/css/services.css">
 <%- include("partials/header") %>
-    <div class="top">
-      <div class="register">
+    <div class="top" style="width: 90vw;">
+      <div class="register" >
         <div class="heads">
-        <h2 style= "color: #fff;"}>Post Something</h2>
+        <h2 style= "color: #fff;"}>Post to provide help/services</h2>
       </div>
         <form id="register" action="/post-services" method="post">
           <label>Type : </label><br>
-          <select class="drop" name="type">
+          <select class="drop" style="width: 70vw;" name="type">
             <option value="Individual">Individual</option>
             <option value="NGO">NGO</option>
             <option value="Company">Company</option>
@@ -15,11 +15,11 @@
           <br><br>
           <label>Name : </label>
           <br>
-          <input type="text" name="pname" id="name" placeholder="Enter You Name">
+          <input type="text" name="pname" style="width: 70vw;" id="name" placeholder="Enter You Name">
           <br><br>
           <label>Service Type : </label>
           <br>
-          <select class="type" name="help">
+          <select class="type" style="width: 70vw;" name="help">
             <option value="Financial Services">Financial Services</option>
             <option value="Food Services">Food Services</option>
             <option value="Ambulance Services">Ambulance Services</option>
@@ -34,7 +34,7 @@
           <br>
           <br>
           <label> Service Details : </label>
-          <textarea class="area" name="detail" rows="6" cols="36">
+          <textarea class="area" style="width: 70vw;" name="detail" rows="6" cols="36">
           </textarea>
           <br><br>
           <label> State : </label>
@@ -48,9 +48,9 @@
                     <br><br>
           <label> Contact Details : </label>
           <br>
-          <input type="text" name="phone" id="name" placeholder="Enter Your Phone Number">
+          <input type="text" name="phone" id="name" style="width: 70vw;" placeholder="Enter Your Phone Number">
           <br><br>
-          <div class="submitb">
+          <div class="submitb" style="display: flex; flex-direction: row; justify-content: space-around;width:45vw">
           <input type="submit" name="submit" id="submit" value="Submit">
         </div>
         </form>
