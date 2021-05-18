@@ -178,7 +178,7 @@ const posthelpSchema = {
   age: Number,
   city: String,
   state: String,
-  temperature: String,
+  temperature: Number,
   count: Number,
   contact: Number,
   content: String,
@@ -210,7 +210,8 @@ app.post("/post", bodyParser.urlencoded({ extended: false }), [
 
   check('name', 'Looks like an invalid name').isLength({ min: 3 }).isAlpha(),
   check('age', 'Invalid age').isNumeric().isLength({ max: 3 }),
-
+  check('temperature', 'Please provide a valid body temperature of the Patient').isNumeric().isLength({ max: 3 }),
+  check('contact', 'Invalid Phone Number').isNumeric().isLength({ max: 10,min:10 }),
 ], function (req, res) {
 
   const posterrors = validationResult(req)
@@ -336,7 +337,18 @@ app.get("/otherss", function (req, res) {
 
 
 
-app.post("/post-services", function (req, res) {
+app.post("/post-services",bodyParser.urlencoded({ extended: false }), [
+
+  check('pname', 'Looks like an invalid name').isLength({ min: 3 }).isAlpha(),
+ check('phone', 'Invalid Phone Number').isNumeric().isLength({ max: 10,min:10 }),
+], function (req, res) {
+
+  const posterrors = validationResult(req)
+  if (!posterrors.isEmpty()) {
+    const postservicesalert = posterrors.array()
+    res.render('post-services', { postservicesalert })
+  }
+  else{
   const y = req.body.help;
   const postser = new PostSer({
     type: req.body.type,
@@ -356,7 +368,7 @@ app.post("/post-services", function (req, res) {
       res.redirect("services");
     }
   });
-
+  }
 });
 
 

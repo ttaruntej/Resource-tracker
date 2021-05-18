@@ -24,30 +24,30 @@
 
 <form action="/post" method="post">
   <div class="form-group">
-    <label>Patient Name</label>
+    <label>Patient Name<span style="color: red;">*</span></label>
     <input  required class="form-control" type="text" name="name" />
 
-    <label>Age</label>
+    <label>Age<span style="color: red;">*</span></label>
     <input required class="form-control" type="text" name="age" />
 
   
 
-    <label>State</label>
+    <label>State<span style="color: red;">*</span></label>
     <select onchange="print_city('cityName', this.selectedIndex);" id="state" name ="state" class="form-control" required></select>
 
-    <label>City</label>
+    <label>City<span style="color: red;">*</span></label>
     <select id ="cityName" class="form-control" required name="city"></select>
     <script language="javascript">print_state("state");</script>
 
   
 
-    <label>Temperature in </label>
+    <label>Temperature in Fahrenheit ('F) <span style="color: red;">*</span></label>
     <input required class="form-control" type="text" name="temperature" />
 
     <label>SPO2 count</label>
-    <input required class="form-control" type="text" name="count" />
+    <input  class="form-control" type="text" name="count" />
     <br />
-    <label for="requirement"> Covid test</label>
+    <label for="requirement"> Covid test<span style="color: red;">*</span></label>
     &nbsp;
     &nbsp;
     <select required name="result" id="result" >
@@ -57,12 +57,12 @@
     </select>
     <br />
     <br />
-    <label>Attendant Contact</label>
+    <label>Attendant Contact (10 digit)<span style="color: red;">*</span></label>
     <input required class="form-control" type="text" name="contact" />
     <br>
     &nbsp;
     &nbsp;
-    <label for="requirement"> Requirement</label>
+    <label for="requirement"> Requirement<span style="color: red;">*</span></label>
     <select required name="requirement" id="requirement" >
       <option value="Beds without oxygen">Beds without oxygen</option>
       <option value="Beds with oxygen">Beds with oxygen</option>
@@ -76,7 +76,7 @@
     <label>Mention Requirement</label>
     
   
-    <textarea required class="form-control" name="content" rows="5" cols="30"></textarea>
+    <textarea  class="form-control" name="content" rows="5" cols="30"></textarea>
   </div>
   <button
     type="submit"
