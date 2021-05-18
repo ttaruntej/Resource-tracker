@@ -1,7 +1,7 @@
 body {
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background-color: #fff;
-  height: 200vh;
+ 
   position: relative; }
   body:before {
     content: "";
@@ -22,7 +22,7 @@ body {
     visibility: visible; }
 
 p {
-  color: #b3b3b3;
+  
   font-weight: 300; }
 
 h1, h2, h3, h4, h5, h6,

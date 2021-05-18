@@ -1,6 +1,6 @@
-<div class="services-sub">
+<div class="services-sub" style="width:100vw">
 
-  <nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav style="position: absolute; z-index: 1; width: 100%" class="navbar navbar-expand-lg navbar-light bg-light">
     <a style="font-weight: lighter" class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentt"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,75 @@
       </form>
     </div>
   </nav>
-  <br />
-  <br />
+  <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br /> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="services">All posts</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">  <form action="/filterpost-services" method="post">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <div style="display: flex;flex-direction: row;justify-content: space-around;width:90vw;flex-wrap: wrap;">
+            <div>
+              <li class="nav-item">
+                <div class="dropdown selectWrapper">
+                  <select  name="servicesrequirementfilter"  class="btn btn-secondary dropdown-toggle"   id="servicesrequirementfilter">
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            
+            
+                      <option value="" disabled selected>Select Services</option>
+                      <option value="Financial Services">Financial Services</option>
+                      <option value="Food Services">Food Services</option>
+                      <option value="Ambulance Services">Ambulance Services</option>
+                      <option value="Beds with Oxygen">Beds with Oxygen</option>
+                      <option value="Beds without Oxygen">Beds without Oxygen</option>
+                      <option value="Plasma">Plasma</option>
+                      <option value="Medicine Type">Medicine Type</option>
+                      <option value="Oxygen Supply">Oxygen Supply</option>
+                      <option value="Vaccination">Vaccination</option>
+                      <option value="Otherss">Others</option>
+            
+                  </ul>
+                </select>
+                </div>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item">
+            
+                <div class="selectWrapper">
+                <select   onchange="print_city('cityName', this.selectedIndex);"  id="servicesstatefilter" name="servicesstatefilter"
+                class="btn btn-secondary dropdown-toggle" ></select>
+                  </div>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item">
+                <div class="selectWrapper" >
+                  <select id="cityName"name="servicescityfilter" class="btn btn-secondary dropdown-toggle"></select>
+                </div>
+                  <script language="javascript">
+                    print_state("servicesstatefilter");
+                  </script>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item">
+              <button type="submit" class="btn btn-outline-success" style="background-color: #006b96;color: white;"
+              name="postbutton">
+              Apply Filter
+                      </button> </li>
+            </div>
+          </div>
+        </ul>
+      
+          
+         
+        </form>
+      </div>
+    </div>
+  </nav>
   <br />
 </div>

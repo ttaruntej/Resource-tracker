@@ -208,7 +208,7 @@ app.get("/feed", function (req, res) {
 
 app.post("/post", bodyParser.urlencoded({ extended: false }), [
 
-  check('name', 'Name must be 3+ characters long').isLength({ min: 3 }).isAlpha(),
+  check('name', 'Looks like an invalid name').isLength({ min: 3 }).isAlpha(),
   check('age', 'Invalid age').isNumeric().isLength({ max: 3 }),
 
 ], function (req, res) {
@@ -218,6 +218,7 @@ app.post("/post", bodyParser.urlencoded({ extended: false }), [
     const postalert = posterrors.array()
     res.render('post', { postalert })
   }
+  else{
   const posthelp = new PostHelp({
     name: req.body.name,
     age: req.body.age,
@@ -238,7 +239,7 @@ app.post("/post", bodyParser.urlencoded({ extended: false }), [
       res.redirect("feed");
     }
   });
-
+  }
 });
 
 
