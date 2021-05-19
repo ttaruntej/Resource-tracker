@@ -33,12 +33,57 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// const {MongoClient} = require('mongodb');
+// async function main(){
+// const uri ='mongodb+srv://echospace:Ki9W5ltBM9yM3rHL@echospace.530yv.mongodb.net/echospaceDB?retryWrites=true&w=majority'
+// const client = new MongoClient(uri);
+// await client.connect();
+// await listDatabases(client);
+// try {
+//   await client.connect();
+
+//   await listDatabases(client);
+
+// } catch (e) {
+//   console.error(e);
+// }
+// finally {
+//   await client.close();
+// }
+// }
+// main().catch(console.error);
+
+// async function listDatabases(client){
+//   databasesList = await client.db().admin().listDatabases();
+
+//   console.log("Databases:");
+//   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+// };
+
+// const mongoPath = 'mongodb+srv://echospace:Ki9W5ltBM9yM3rHL@echospace.530yv.mongodb.net/echospaceDB?retryWrites=true&w=majority'
+
+// module.exports = async () => {
+//   await mongoose.connect(mongoPath,{  
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   })
+//   return mongoose
+// }
+
+
+
+
+// mongoose.connect("mongodb+srv://echospace:Ki9W5ltBM9yM3rHL@echospace.530yv.mongodb.net/echospaceDB?retryWrites=true&w=majority", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+// mongoose.set("useCreateIndex", true);
+
 mongoose.connect("mongodb://localhost:27017/covidDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 mongoose.set("useCreateIndex", true);
-
 
 
 const userSchema = new mongoose.Schema({
@@ -75,7 +120,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/covid",
+      callbackURL: "http://localhost:3000/auth/google/Echospace",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     function (accessToken, refreshToken, profile, cb) {
@@ -133,7 +178,7 @@ app.get(
 );
 
 app.get(
-  "/auth/google/covid",
+  "/auth/google/Echospace",
   passport.authenticate("google", { failureRedirect: "/login" }),
   function (req, res) {
     // Successful authentication, redirect to secrets.
@@ -189,7 +234,7 @@ const PostHelp = mongoose.model("PostHelp", posthelpSchema);
 
 app.post("/post", bodyParser.urlencoded({ extended: false }), [
 
-  check('name', 'Looks like an invalid name').isLength({ min: 3 }).isAlpha(),
+  check('name', 'Looks like an invalid name').isLength({ min: 3 }),
   check('age', 'Invalid age').isNumeric().isLength({ max: 3 }),
   check('temperature', 'Please provide a valid body temperature of the Patient').isNumeric().isLength({ max: 3 }),
   check('contact', 'Invalid Phone Number').isNumeric().isLength({ max: 10,min:10 }),
@@ -266,11 +311,13 @@ app.post("/submit", function (req, res) {
   });
 });
 
+const port = process.env.PORT || 3000;
 
-
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+app.listen(port, function () {
+  console.log("Server started on port "+ port);
 });
+
+// app.listen();
 
 const postServiceSchema = {
   type: String,
@@ -299,7 +346,7 @@ app.get("/otherss", function (req, res) {
 
 app.post("/post-services",bodyParser.urlencoded({ extended: false }), [
 
-  check('pname', 'Looks like an invalid name').isLength({ min: 3 }).isAlpha(),
+  check('pname', 'Looks like an invalid name').isLength({ min: 3 }),
  check('phone', 'Invalid Phone Number').isNumeric().isLength({ max: 10,min:10 }),
 ], function (req, res) {
 
